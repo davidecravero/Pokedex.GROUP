@@ -7,7 +7,7 @@ const highResImageURL="https://pokeres.bastionbot.org/images/pokemon/[id].png";
 
 // get pokemon id from details url (index doesn't match pokemon number)
 const HQimg = (name, id) => {
-  let result=<img className="poke-image" src={highResImageURL.replace("[id]",id)} alt={"HQ image of " + name} />
+  let result=<img className="poke-image" src={highResImageURL.replace("[id]",id)} alt={"HQ image of " + name} title={"HQ image of " + name} />
   return result;
 }
 // get pokemon id from details url (index doesn't match pokemon number)
