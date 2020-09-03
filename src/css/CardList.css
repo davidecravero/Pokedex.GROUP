@@ -1,3 +1,8 @@
+h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
 .poke-card-list {
   display:inline-block;
   border: 1px solid #ccc;
@@ -12,5 +17,5 @@
 }
 
 .poke-image {
-  width:200px;
+  width: 200px;
 }
