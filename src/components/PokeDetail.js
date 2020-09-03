@@ -45,9 +45,9 @@ const PokeDetail = ({
         <div className="card">
           <h1>Name: {id}</h1>
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
-          <Sprites />
+          <Sprites data={data} />
           <Link to="/">Return</Link>
-          <Stats />
+          <Stats id={data.id} />
         </div>
       ) : null}
       {error ? <div className="poke-error">{error}</div> : null}

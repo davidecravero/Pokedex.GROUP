@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./../css/Stats.css";
 
-const Stats = () => {
+const Stats = (props) => {
   const [statsArray, setStatsArray] = useState([]);
+  console.log ("ID:"+props.id);
+  //console.log(props.transferData);
 
-  const testURL = "https://pokeapi.co/api/v2/pokemon/1";
+  const testURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
 
   useEffect(() => {
     fetch(testURL)
