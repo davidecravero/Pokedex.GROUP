@@ -31,9 +31,7 @@ const PokeList = () => {
   return (
     <div className="container">
       <div className="list">
-        {data
-          ? data.map((item) => <CardList key={item.name} data={item} />)
-          : null}
+        {data ? data.map((item) => <CardList key={item.name} data={item} />) : null}
         {error ? <div className="poke-error">{error}</div> : null}
       </div>
     </div>
