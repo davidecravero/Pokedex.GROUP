@@ -6,21 +6,24 @@
 
 #berryImage {
   width: 60px;
+  margin: 0;
 }
 
 #berryEffect {
-  margin-bottom: 3em;
   text-align: left;
 }
 
 #descriptionWrapper {
-  width: 700px;
+  width: 500px;
 }
 
 #berryWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 3em;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .berryCategory {

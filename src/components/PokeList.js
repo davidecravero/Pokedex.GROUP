@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import CardList from "./../components/CardList.js";
+import "./../css/PokeList.css";
 
 const listURL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
@@ -30,6 +31,10 @@ const PokeList = () => {
 
   return (
     <div className="container">
+      <div id="imageWrapper">
+        <img id="logo" src="https://i.redd.it/ihmki0cl1s331.jpg" />
+      </div>
+
       <div className="list">
         {data ? data.map((item) => <CardList key={item.name} data={item} />) : null}
         {error ? <div className="poke-error">{error}</div> : null}
