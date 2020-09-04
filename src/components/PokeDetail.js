@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Stats from "./Stats";
+import Abilities from "./Abilities";
+import Types from "./Types";
 import Sprites from "./Sprites";
 import "./../css/PokeDetail.css";
 
@@ -45,9 +47,13 @@ const PokeDetail = ({
         <div className="card">
           <h1>Name: {id}</h1>
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
-          <Sprites />
+          <Sprites data={data} />
           <Link to="/">Return</Link>
-          <Stats propsData={data.id} />
+
+          <Abilities id = {data.id} />
+          <Types id = {data.id} />
+          <Stats id={data.id} />
+
         </div>
       ) : null}
       {error ? <div className="poke-error">{error}</div> : null}
