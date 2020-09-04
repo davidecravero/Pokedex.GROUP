@@ -3,6 +3,9 @@ import "./../css/BerriesView.css";
 
 const Berries = () => {
   const [berries, setBerries] = useState();
+  const [url, setUrl] = useState("https://pokeapi.co/api/v2/berry/?offset=0&limit=20");
+  const [hasError, setError] = useState(false);
+
   useEffect(() => {
     const pendingPromises = [];
     for (let i = 1; i <= 64; i++) {
@@ -10,21 +13,24 @@ const Berries = () => {
         fetch("https://pokeapi.co/api/v2/berry/" + i)
           .then((value) => value.json())
           .then((value) => value)
-          .catch((error) => error)
+          .catch((error) => setError(true))
       );
     }
     Promise.all(pendingPromises).then((value) => {
       const pendingPromises2 = value.map((element) => {
         return fetch(element.item.url)
           .then((value) => value.json())
-          .then((value) => value)
-          .catch((error) => error);
+          .then((value) => {
+            return value;
+          })
+          .catch((error) => setError(true));
       });
-      Promise.all(pendingPromises2).then((value) => setBerries(value));
+      Promise.all(pendingPromises2).then((value) => {
+        setBerries(value);
+        setError(false);
+      });
     });
   }, []);
-
-  console.log(berries);
 
   return (
     <div className="App">
@@ -36,7 +42,7 @@ const Berries = () => {
                 <img id="berryImage" src={berry.sprites.default} />
                 <div id="descriptionWrapper">
                   <div
-                    class={`berryCategory
+                    className={`berryCategory
                   ${
                     berry.category.name === "medicine"
                       ? "medicine"
@@ -60,6 +66,7 @@ const Berries = () => {
             );
           })
         : null}
+      {/* <button onClick={() => loadMoreBerries()}>More berries</button> */}
     </div>
   );
 };

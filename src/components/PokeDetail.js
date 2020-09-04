@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Stats from "./Stats";
 import Sprites from "./Sprites";
-import Berries from "./BerriesView";
 import "./../css/PokeDetail.css";
 
 // URL has to be followed by Pokemon number
@@ -49,7 +48,6 @@ const PokeDetail = ({
           <Sprites />
           <Link to="/">Return</Link>
           <Stats propsData={data.id} />
-          <Berries />
         </div>
       ) : null}
       {error ? <div className="poke-error">{error}</div> : null}
