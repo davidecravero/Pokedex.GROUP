@@ -1,0 +1,54 @@
+#berryName {
+  font-size: 1em;
+  width: 150px;
+  font-weight: bold;
+}
+
+#berryImage {
+  width: 60px;
+}
+
+#berryEffect {
+  margin-bottom: 3em;
+  text-align: left;
+}
+
+#descriptionWrapper {
+  width: 700px;
+}
+
+#berryWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.berryCategory {
+  margin-bottom: 1em;
+  text-align: left;
+  font-weight: bold;
+}
+
+.medicine {
+  color: darkslategrey;
+}
+
+.pickyHealing {
+  color: darkslateblue;
+}
+
+.bakingOnly {
+  color: darkred;
+}
+
+.effortDrop {
+  color: darkseagreen;
+}
+
+.typeProtection {
+  color: darkblue;
+}
+
+.inAPinch {
+  color: darkolivegreen;
+}

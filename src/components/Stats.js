@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./../css/Stats.css";
 
 const Stats = (props) => {
@@ -6,9 +6,10 @@ const Stats = (props) => {
   console.log ("ID:"+props.id);
   //console.log(props.transferData);
 
+
   const testURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
 
-  useEffect(() => {
+  /*  useEffect(() => {
     fetch(testURL)
       .then((response) => response.json())
       .then((data) => {
@@ -17,7 +18,7 @@ const Stats = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, []); */
 
   const displayStats = () => {
     let stats = [];
