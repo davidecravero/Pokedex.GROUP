@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import "./../css/CardList.css";
 import Abilities from "./Abilities";
 import Types from "./Types";
-
-
+import Stats from "./Stats";
+import "./../css/CardList.css";
 
 const highResImageURL="https://pokeres.bastionbot.org/images/pokemon/[id].png";
 
 
 // get pokemon id from details url (index doesn't match pokemon number)
 const HQimg = (name, id) => {
-  let result=<img className="poke-image" src={highResImageURL.replace("[id]",id)} alt={"HQ image of " + name} />
+  let result=<img className="poke-image" src={highResImageURL.replace("[id]",id)} alt={"HQ image of " + name} title={"HQ image of " + name} />
   return result;
 }
 // get pokemon id from details url (index doesn't match pokemon number)
@@ -30,8 +30,8 @@ const CardList = (props) => {
       <h2>{props.data.name}</h2>
       <h3>#{id}</h3>
       {HQimg(props.data.name, id)}
+      <Stats id={id} />
       <Link to={`/detail/${props.data.name}`}>View Details</Link>
-   
       <Abilities id={id} />
       <Types id={id} />
     </div>
