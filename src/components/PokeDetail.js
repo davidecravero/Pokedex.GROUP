@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Stats from "./Stats";
+import Abilities from "./Abilities";
+import Types from "./Types";
 import Sprites from "./Sprites";
 import "./../css/PokeDetail.css";
 
@@ -47,6 +49,8 @@ const PokeDetail = ({
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
           <Link to="/">Return</Link>
+          <Abilities id = {data.id} />
+          <Types id = {data.id} />
           <Stats id={data.id} />
         </div>
       ) : null}
