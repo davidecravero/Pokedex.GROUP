@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Stats from "./Stats";
+import Abilities from "./Abilities";
+import Types from "./Types";
 
 // URL has to be followed by Pokemon number
 const detailURL = "https://pokeapi.co/api/v2/pokemon/";
@@ -45,6 +47,8 @@ const PokeDetail = ({
           <img src={data.sprites.front_default} alt={data.name} />
           <Link to="/">Return</Link>
           <Stats />
+          <Abilities id = {data.id} />
+          <Types id = {data.id} />
         </div>
       ) : null}
       {error ? <div className="poke-error">{error}</div> : null}

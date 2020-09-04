@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./../css/CardList.css";
-import Stats from "./Stats";
+import Abilities from "./Abilities";
+import Types from "./Types";
+
+
 
 const highResImageURL="https://pokeres.bastionbot.org/images/pokemon/[id].png";
 
@@ -28,7 +31,9 @@ const CardList = (props) => {
       <h3>#{id}</h3>
       {HQimg(props.data.name, id)}
       <Link to={`/detail/${props.data.name}`}>View Details</Link>
-      <Stats />
+   
+      <Abilities id={id} />
+      <Types id={id} />
     </div>
   );
 };
