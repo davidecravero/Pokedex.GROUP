@@ -1,7 +1,12 @@
 img {
-  width: 40%;
+  width: 12em;
   margin: 0 auto;
   max-width: 300px;
+}
+
+a {
+  text-align: center;
+  margin: 0 auto;
 }
 
 #imageWrapper {
