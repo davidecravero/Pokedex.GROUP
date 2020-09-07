@@ -3,10 +3,15 @@ import React, { useState, useEffect } from "react";
 const Types = (props) => {
   const [typesArray, setTypesArray] = useState([]);
 
-  const testURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
+  const pokeAPI = "https://pokeapi.co/api/v2/pokemon/"+props.id;
 
   useEffect(() => {
-    fetch(testURL)
+    if (props.data){
+      //console.log("accessing data for pokemon types");
+      setTypesArray(props.data.types);
+    }else{
+      //console.log("fetching data for pokemon types");
+    fetch(pokeAPI)
       .then((response) => response.json())
       .then((data) => {
         setTypesArray(data.types);
@@ -14,7 +19,8 @@ const Types = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+    }
+  }, [pokeAPI, props.data, props.id]);
 
   const displayTypes = () => {
     let types = [];

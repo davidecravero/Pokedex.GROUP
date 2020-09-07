@@ -49,8 +49,9 @@ const PokeDetail = ({
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
           <Link to="/">Return</Link>
-          <Abilities id = {data.id} />
-          <Types id = {data.id} />
+          {/*passing existing data to avoid refetch for detail components*/}
+          <Abilities id = {data.id} data={data} />
+          <Types id = {data.id} data={data} />
           <Stats id={data.id} data={data} />
        </div>
       ) : null}

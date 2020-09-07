@@ -32,7 +32,7 @@ const PokeList = () => {
   return (
     <div className="container">
       <div id="imageWrapper">
-        <img id="logo" src="https://i.redd.it/ihmki0cl1s331.jpg" />
+        <img id="logo" src="https://i.redd.it/ihmki0cl1s331.jpg" alt="pokemon-logo" />
       </div>
 
       <div className="list">
