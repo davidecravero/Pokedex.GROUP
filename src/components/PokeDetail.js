@@ -48,9 +48,8 @@ const PokeDetail = ({
           <h1>Name: {id}</h1>
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
-          <div id="linkWrapper">
-            <Link to="/">Return</Link>
-          </div>
+          <Link to="/">Return</Link>
+
           <Abilities id={data.id} />
           <Types id={data.id} />
           <Stats id={data.id} data={data} />
