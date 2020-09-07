@@ -50,10 +50,10 @@ const PokeDetail = ({
           <Sprites data={data} />
           <Link to="/">Return</Link>
 
-          <Abilities id={data.id} />
-          <Types id={data.id} />
-          <Stats id={data.id} />
-        </div>
+          <Abilities id = {data.id} />
+          <Types id = {data.id} />
+          <Stats id={data.id} data={data} />
+       </div>
       ) : null}
       {error ? <div className="poke-error">{error}</div> : null}
     </div>
