@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./../css/Stats.css";
 
 const Stats = (props) => {
@@ -25,6 +25,7 @@ const Stats = (props) => {
     }
   }, [pokeApiURL, props.id]);
  
+
   const displayStats = () => {
     let stats = [];
     console.log(statsArray);
