@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./../css/Stats.css";
 
 const Stats = (props) => {
