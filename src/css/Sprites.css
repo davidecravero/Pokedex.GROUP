@@ -4,11 +4,6 @@ img {
   max-width: 300px;
 }
 
-a {
-  text-align: center;
-  margin: 0 auto;
-}
-
 #imageWrapper {
   display: flex;
 }

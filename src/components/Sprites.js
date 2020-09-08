@@ -7,7 +7,7 @@ const Sprites = (props) => {
 
   return (
     <div id="imageWrapper">
-      <img alt="High-Resolution Image" src={`https://pokeres.bastionbot.org/images/pokemon/${props.data.id}.png`} />
+      <img div="imgDetails" alt="High-Resolution Image" src={`https://pokeres.bastionbot.org/images/pokemon/${props.data.id}.png`} />
     </div>
   );
 };
