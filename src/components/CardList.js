@@ -5,7 +5,6 @@ import Abilities from "./Abilities";
 import Types from "./Types";
 import Stats from "./Stats";
 import "./../css/CardList.css";
-import { getJSDocTemplateTag, getConstantValue } from "typescript";
 
 const highResImageURL =
   "https://pokeres.bastionbot.org/images/pokemon/[id].png";

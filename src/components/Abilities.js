@@ -34,9 +34,7 @@ const Abilities = (props) => {
   return (
     <div id="abilities">
       <h1>Abilities</h1>
-      {}
       {abilitiesArray.length ? displayAbilities() : null}
-      {}
     </div>
   );
 };
