@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "./../css/Types.css";
 
 const Types = (props) => {
   const [typesArray, setTypesArray] = useState([]);
-
-  const pokeAPI = "https://pokeapi.co/api/v2/pokemon/"+props.id;
+  const testURL = "https://pokeapi.co/api/v2/pokemon/" + props.id;
 
   useEffect(() => {
     if (props.data){
@@ -24,19 +24,15 @@ const Types = (props) => {
 
   const displayTypes = () => {
     let types = [];
-   
+
     for (let key in typesArray) {
-      types.push(
-        <div key={typesArray[key].type.name}>
-          types: {typesArray[key].type.name};
-        </div>
-      );
+      types.push(<div key={typesArray[key].type.name}>types: {typesArray[key].type.name};</div>);
     }
     return types;
   };
 
   return (
-    <div>
+    <div id="types">
       <h1>Types</h1>
       {}
       {typesArray.length ? displayTypes() : null}
