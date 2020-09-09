@@ -3,7 +3,7 @@ import "./../css/Types.css";
 
 const Types = (props) => {
   const [typesArray, setTypesArray] = useState([]);
-  const testURL = "https://pokeapi.co/api/v2/pokemon/" + props.id;
+  const pokeAPI = "https://pokeapi.co/api/v2/pokemon/" + props.id;
 
   useEffect(() => {
     if (props.data){
