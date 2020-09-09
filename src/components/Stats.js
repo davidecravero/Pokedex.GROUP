@@ -4,16 +4,15 @@ import "./../css/Stats.css";
 const Stats = (props) => {
   const [statsArray, setStatsArray] = useState([]);
   console.log ("ID:"+props.id);
-  //console.log(props.transferData);
 
   const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
 
   useEffect(() => {
     if (props.data){
-      console.log("accessing data for pokemon stats");
+      //console.log("accessing data for pokemon stats");
       setStatsArray(props.data.stats);
     }else{
-      console.log("fetching data for pokemon stats");
+      //console.log("fetching data for pokemon stats");
       fetch(pokeApiURL)
         .then((response) => response.json())
         .then((data) => {
@@ -23,7 +22,7 @@ const Stats = (props) => {
           console.log(error);
         });
     }
-  }, [pokeApiURL, props.id]);
+  }, [pokeApiURL, props.id, props.data]);
  
 
   const displayStats = () => {
