@@ -2,3 +2,23 @@
   width: 500px;
   margin: 2em auto;
 }
+
+#searchInput {
+  padding: 0.5em;
+  border: 2px solid #2a75bb;
+}
+
+#searchButton {
+  padding: 0.5em 1em;
+  background-color: #ffcb05;
+  border: 2px solid #2a75bb;
+  color: #3c5aa6;
+  font-weight: bold;
+}
+
+#searchWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 0;
+}

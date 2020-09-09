@@ -8,6 +8,8 @@ const listURL = "https://pokeapi.co/api/v2/pokemon?limit=151";
 const PokeList = (props) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [currentSearch, setCurrentSearch] = useState("");
 
   const getListData = () => {
     console.log("fetching data");
@@ -29,10 +31,38 @@ const PokeList = (props) => {
     getListData();
   }, []);
 
+  const handleSearch = (e) => {
+    console.log(e.target.value);
+    setInputValue(e.target.value);
+  };
+
+  useEffect(() => {
+    console.log("id" + currentSearch);
+  }, [currentSearch]);
+
+  const handleFilter = () => {
+    let result = [];
+    data.filter((element) => {
+      result.push(element.name.toLowerCase().includes(inputValue.toLowerCase()));
+    });
+    console.log(result);
+    for (let item of result) {
+      if (item == true) {
+        setCurrentSearch(result.indexOf(item));
+      }
+    }
+  };
+
   return (
     <div className="container">
       <div id="imageWrapper">
         <img id="logo" src="https://i.redd.it/ihmki0cl1s331.jpg" alt="pokemon-logo" />
+      </div>
+      <div id="searchWrapper">
+        <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} />
+        <button id="searchButton" onClick={handleFilter}>
+          Search Pokémon
+        </button>
       </div>
 
       <div className="list">
