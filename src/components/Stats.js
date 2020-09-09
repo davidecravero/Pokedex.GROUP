@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from "react";
 import "./../css/Stats.css";
 
-const Stats = () => {
+const Stats = (props) => {
   const [statsArray, setStatsArray] = useState([]);
+  console.log ("ID:"+props.id);
+  //console.log(props.transferData);
 
-  const testURL = "https://pokeapi.co/api/v2/pokemon/1";
+  const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
 
   useEffect(() => {
-    fetch(testURL)
-      .then((response) => response.json())
-      .then((data) => {
-        setStatsArray(data.stats);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    if (props.data){
+      console.log("accessing data for pokemon stats");
+      setStatsArray(props.data.stats);
+    }else{
+      console.log("fetching data for pokemon stats");
+      fetch(pokeApiURL)
+        .then((response) => response.json())
+        .then((data) => {
+          setStatsArray(data.stats);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [pokeApiURL, props.id]);
+ 
 
   const displayStats = () => {
     let stats = [];

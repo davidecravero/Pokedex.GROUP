@@ -1,10 +1,72 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
+  margin-top: 50px;
+}
+
+nav {
+  background-color: rgb(50, 50, 120);
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4em;
+}
+
+li {
+  color: white;
+  font-size: 1.5em;
+}
+
+a:visited {
+  color: darkgrey;
+}
+
+.playerOne {
+  margin: 0 2.5em;
+  font-style: italic;
+  color: #ee1515;
+  font-size: 20px;
+}
+
+.playerTwo {
+  margin: 0 2.5em;
+  font-style: italic;
+  color: #f0f0f0;
+  font-size: 20px;
+}
+
+.pOne {
+  color: #ee1515;
+  font-size: 22px;
+}
+
+.pTwo {
+  color: #f0f0f0;
+  font-size: 22px;
+}
+
+#fightBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
