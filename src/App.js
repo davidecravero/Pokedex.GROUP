@@ -19,7 +19,7 @@ function App() {
             <Link to="/Combat">Combat</Link>
           </li>
           <li>
-            <Link to="Berries">Berries</Link>
+            <Link to="/Berries">Berries</Link>
           </li>
         </ul>
       </nav>
@@ -27,7 +27,7 @@ function App() {
         <Route exact path="/" component={PokeList} />
         <Route path="/detail/:id" component={PokeDetail} />
         <Route path="/Berries" component={BerriesView} />
-        <Route path="/Combat" component={CombatView} />
+        <Route path="/Combat/:pokemon1/:pokemon2" component={CombatView} />
       </Switch>
     </Router>
   );
