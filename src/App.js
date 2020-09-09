@@ -35,7 +35,7 @@ function App() {
                 </div>
               ) : null}
 
-              {displayPlayerOne && displayPlayerOne.length && displayPlayerTwo && displayPlayerTwo.length ? <Link to="/Combat">Combat</Link> : null}
+              {displayPlayerOne && displayPlayerOne.length && displayPlayerTwo && displayPlayerTwo.length ? <Link to={`/Combat/${displayPlayerOne}/${displayPlayerTwo}`}>Combat</Link> : null}
 
               {displayPlayerTwo && displayPlayerTwo.length ? (
                 <div className="playerWrapper">
