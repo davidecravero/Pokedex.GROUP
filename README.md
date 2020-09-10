@@ -63,6 +63,7 @@ HoverIcon  | Component to show the type using Daniel Motta's fine icons and a ho
   * converted from sketch to svg, then to base64 inline-css
 * Pokeball Illustration by [Alanyadk](https://pixabay.com/users/Alanyadk-1919646) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1536849)
 * High-Res Image API (https://pokeres.bastionbot.org/images/pokemon/[id].png)
+* Online Node Graph Editor [yworks](https://live.yworks.com/demos/layout/layoutstyles/index.html)
 
 
 # Have fun!
