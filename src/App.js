@@ -30,16 +30,23 @@ function App() {
             <div id="fightBar">
               {displayPlayerOne && displayPlayerOne.length ? (
                 <div className="playerWrapper">
-                  <div className="pOne">P1</div>
+                  <div className="pOne">Player 1</div>
                   <div className="playerOne">{displayPlayerOne} </div>
                 </div>
               ) : null}
 
-              {displayPlayerOne && displayPlayerOne.length && displayPlayerTwo && displayPlayerTwo.length ? <Link to={`/Combat/${displayPlayerOne}/${displayPlayerTwo}`}>Combat</Link> : null}
+              {displayPlayerOne &&
+              displayPlayerOne.length &&
+              displayPlayerTwo &&
+              displayPlayerTwo.length ? (
+                <Link to={`/Combat/${displayPlayerOne}/${displayPlayerTwo}`}>
+                  Combat
+                </Link>
+              ) : null}
 
               {displayPlayerTwo && displayPlayerTwo.length ? (
                 <div className="playerWrapper">
-                  <div className="pTwo">P2</div>
+                  <div className="pTwo">Player 2</div>
                   <div className="playerTwo">{displayPlayerTwo} </div>
                 </div>
               ) : null}

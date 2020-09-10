@@ -22,7 +22,7 @@ a:active {
 
 .poke-card-list {
   border-radius: 5px;
-  box-shadow: 0 5px 10px 0 rgba(233, 230, 230, 0.7);
+  box-shadow: 0 5px 10px 0 rgba(233, 230, 230, 0.9);
   transition: 0.3s;
   padding: 1rem;
   text-align: center;

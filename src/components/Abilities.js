@@ -30,14 +30,18 @@ const Abilities = ({ id, data }) => {
     let abilities = [];
 
     for (let key in abilitiesArray) {
-      abilities.push(<div key={abilitiesArray[key].ability.name}>abilities: {abilitiesArray[key].ability.name};</div>);
+      abilities.push(
+        <div key={abilitiesArray[key].ability.name}>
+          abilities: {abilitiesArray[key].ability.name};
+        </div>
+      );
     }
     return abilities;
   };
 
   return (
     <div id="abilities">
-      <h1>Abilities</h1>
+      <h3>Abilities</h3>
       {abilitiesArray.length ? displayAbilities() : null}
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>

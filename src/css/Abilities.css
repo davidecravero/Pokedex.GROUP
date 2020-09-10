@@ -1,3 +1,4 @@
 #abilities {
-  height: 80px;
+  min-height: 80px;
+  margin-top: 30px;
 }

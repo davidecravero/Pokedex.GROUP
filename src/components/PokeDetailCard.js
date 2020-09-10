@@ -48,7 +48,9 @@ const PokeDetailCard = ({ id }) => {
           <h1>{pokeNameUpperCase(id)}</h1>
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
-          <Link to="/">Return</Link>
+          <button className="btn-return">
+            <Link to="/">Return</Link>
+          </button>
           {/*passing existing data to avoid refetch for detail components*/}
           <Abilities id={data.id} data={data} />
           <Types id={data.id} data={data} />

@@ -30,14 +30,18 @@ const Types = ({ id, data }) => {
     let types = [];
 
     for (let key in typesArray) {
-      types.push(<div key={typesArray[key].type.name}>types: {typesArray[key].type.name};</div>);
+      types.push(
+        <div key={typesArray[key].type.name}>
+          types: {typesArray[key].type.name};
+        </div>
+      );
     }
     return types;
   };
 
   return (
     <div id="types">
-      <h1>Types</h1>
+      <h3>Types</h3>
       {typesArray.length ? displayTypes() : null}
       {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
