@@ -56,6 +56,7 @@ const Stats = ({ id, data }) => {
                 className="bst"
                 style={{
                   width: (statsArray[element].base_stat / 255) * 100 + "%",
+                  opacity: ((statsArray[element].base_stat / 255) * 100<1?0:1)
                 }}
               >
                 {/*{statsArray[element].base_stat}*/}
