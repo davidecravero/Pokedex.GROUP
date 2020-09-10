@@ -4,6 +4,7 @@ import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Types from "./Types";
 import Sprites from "./Sprites";
+import ErrorHandler from "./ErrorHandler";
 import "./../css/PokeDetail.css";
 
 // URL has to be followed by Pokemon number
@@ -17,7 +18,7 @@ const PokeDetailCard = (props) => {
   useEffect(() => {
     const getDetailData = () => {
       console.log("fetching details");
-    
+
       fetch(detailURL + props.id)
         .then((response) => response.json())
         .then((data) => {
@@ -27,10 +28,8 @@ const PokeDetailCard = (props) => {
         })
         .catch((errorMsg) => {
           let errorOutput = `Error: ${errorMsg}`;
-          console.log(errorOutput);
           setError(errorOutput);
         });
-      
     };
 
     setIsLoading(true);
@@ -47,12 +46,12 @@ const PokeDetailCard = (props) => {
           <Sprites data={data} />
           <Link to="/">Return</Link>
           {/*passing existing data to avoid refetch for detail components*/}
-          <Abilities id = {data.id} data={data} />
-          <Types id = {data.id} data={data} />
+          <Abilities id={data.id} data={data} />
+          <Types id={data.id} data={data} />
           <Stats id={data.id} data={data} />
-       </div>
+        </div>
       ) : null}
-      {error ? <div className="poke-error">{error}</div> : null}
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };

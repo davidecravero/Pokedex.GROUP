@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from "react";
+import ErrorHandler from "./ErrorHandler";
 import "./../css/Stats.css";
 
 const Stats = (props) => {
   const [statsArray, setStatsArray] = useState([]);
-  console.log ("ID:"+props.id);
+  const [error, setError] = useState("");
 
-  const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
+  console.log("ID:" + props.id);
+
+  const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/" + props.id;
 
   useEffect(() => {
-    if (props.data){
+    if (props.data) {
       //console.log("accessing data for pokemon stats");
       setStatsArray(props.data.stats);
-    }else{
+    } else {
       //console.log("fetching data for pokemon stats");
       fetch(pokeApiURL)
         .then((response) => response.json())
         .then((data) => {
           setStatsArray(data.stats);
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((errorMsg) => {
+          let errorOutput = `Error: ${errorMsg}`;
+          setError(errorOutput);
         });
     }
   }, [pokeApiURL, props.id, props.data]);
- 
 
   const displayStats = () => {
     let stats = [];
-    console.log(statsArray);
-    console.log(statsArray[1]);
-    console.log(statsArray[1].base_stat);
-    console.log(statsArray[1].stat.name);
     for (let element in statsArray) {
       stats.push(
         <div key={statsArray[element].stat.name}>
@@ -77,7 +76,7 @@ const Stats = (props) => {
       <div id="titleBar">Basestat(BST): 0 - 255</div>
 
       {statsArray.length ? displayStats() : null}
-      {/* {error ? consonole.log("error") : null} */}
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };

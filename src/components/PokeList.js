@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-import CardList from "./../components/CardList";
+import ErrorHandler from "./ErrorHandler";
+import CardList from "./../components/CardList.js";
+
 import "./../css/PokeList.css";
 
-const listURL = "https://pokeapi.co/api/v2/pokemon?limit=151";
+const listUrl = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
 const PokeList = (props) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [inputValue, setInputValue] = useState("");
-  const [currentSearch, setCurrentSearch] = useState("");
+  const [currentSearch, setCurrentSearch] = useState([]);
 
   const getListData = () => {
-    console.log("fetching data");
-
-    fetch(listURL)
+    fetch(listUrl)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -22,7 +22,6 @@ const PokeList = (props) => {
       })
       .catch((errorMsg) => {
         let errorOutput = `Error: ${errorMsg}`;
-        console.log(errorOutput);
         setError(errorOutput);
       });
   };
@@ -37,12 +36,9 @@ const PokeList = (props) => {
   };
 
   useEffect(() => {
-    //console.log("input changed!"+inputValue)
+
     if (data && data.length) {
-      const results = data.filter((item) => {
-        return item.name.toLowerCase().includes(inputValue.toLowerCase());
-      }
-      );
+      const results = data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
       setCurrentSearch(results);
     }
 
@@ -64,7 +60,8 @@ const PokeList = (props) => {
               return <CardList key={item.name} data={item} choiceOne={props.choiceOne} choiceTwo={props.choiceTwo} />;
             })
           : null}
-        {error ? <div className="poke-error">{error}</div> : null}
+        {/*   {error ? <div className="poke-error">{error}</div> : null} */}
+        {error ? <ErrorHandler errorMessage={error} /> : null}
       </div>
     </div>
   );

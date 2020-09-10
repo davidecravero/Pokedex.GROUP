@@ -1,0 +1,13 @@
+#error {
+  background-color: red;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 1em 0;
+}
+
+#errorWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

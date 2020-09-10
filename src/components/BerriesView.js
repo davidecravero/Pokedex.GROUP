@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import ErrorHandler from "./ErrorHandler";
 import "./../css/BerriesView.css";
 
 const Berries = () => {
   const [berries, setBerries] = useState();
   const [url, setUrl] = useState("https://pokeapi.co/api/v2/berry/?offset=0&limit=20");
-  const [hasError, setError] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const pendingPromises = [];
@@ -14,7 +14,10 @@ const Berries = () => {
         fetch("https://pokeapi.co/api/v2/berry/" + i)
           .then((value) => value.json())
           .then((value) => value)
-          .catch((error) => setError(true))
+          .catch((errorMsg) => {
+            let errorOutput = `Error: ${errorMsg}`;
+            setError(errorOutput);
+          })
       );
     }
     Promise.all(pendingPromises).then((value) => {
@@ -24,11 +27,14 @@ const Berries = () => {
           .then((value) => {
             return value;
           })
-          .catch((error) => setError(true));
+          .catch((errorMsg) => {
+            let errorOutput = `Error: ${errorMsg}`;
+            setError(errorOutput);
+          });
       });
       Promise.all(pendingPromises2).then((value) => {
         setBerries(value);
-        setError(false);
+        setError("");
       });
     });
   }, []);
@@ -67,7 +73,7 @@ const Berries = () => {
             );
           })
         : null}
-      {/* <button onClick={() => loadMoreBerries()}>More berries</button> */}
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };

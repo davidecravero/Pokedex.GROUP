@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from "react";
+import ErrorHandler from "./ErrorHandler";
 import "./../css/Types.css";
 
 const Types = (props) => {
   const [typesArray, setTypesArray] = useState([]);
+  const [error, setError] = useState("");
+
   const pokeAPI = "https://pokeapi.co/api/v2/pokemon/" + props.id;
 
   useEffect(() => {
-    if (props.data){
+    if (props.data) {
       //console.log("accessing data for pokemon types");
       setTypesArray(props.data.types);
-    }else{
+    } else {
       //console.log("fetching data for pokemon types");
-    fetch(pokeAPI)
-      .then((response) => response.json())
-      .then((data) => {
-        setTypesArray(data.types);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      fetch(pokeAPI)
+        .then((response) => response.json())
+        .then((data) => {
+          setTypesArray(data.types);
+        })
+        .catch((errorMsg) => {
+          let errorOutput = `Error: ${errorMsg}`;
+          setError(errorOutput);
+        });
     }
   }, [pokeAPI, props.data, props.id]);
 
@@ -34,9 +38,8 @@ const Types = (props) => {
   return (
     <div id="types">
       <h1>Types</h1>
-      {}
       {typesArray.length ? displayTypes() : null}
-      {}
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };
