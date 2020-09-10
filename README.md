@@ -37,7 +37,7 @@ Natascha, Davide, Thomas, J
 * Modular, reusable component structure
 
 # Structure
-<img src="./src/assets/structure.png" width="800">
+<img src="./src/assets/structure-v2.png" width="800">
 
 # Credits
 * API: [Poke API](https://pokeapi.co/)
