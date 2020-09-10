@@ -58,9 +58,13 @@ const Stats = ({ id, data }) => {
                   width: (statsArray[element].base_stat / 255) * 100 + "%",
                 }}
               >
-                {statsArray[element].base_stat}
+                {/*{statsArray[element].base_stat}*/}
               </span>
+
             </div>
+            <span className="bst-text">
+              {statsArray[element].base_stat}
+              </span>
           </div>
         </div>
       );
