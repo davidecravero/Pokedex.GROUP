@@ -2,30 +2,29 @@ import React, { useState, useEffect } from "react";
 import ErrorHandler from "./ErrorHandler";
 import "./../css/Abilities.css";
 
-const Abilities = (props) => {
+const Abilities = ({ id, data }) => {
   const [abilitiesArray, setAbilitiesArray] = useState([]);
   const [error, setError] = useState("");
 
-  const pokeapi = "https://pokeapi.co/api/v2/pokemon/" + props.id;
+  const pokeapi = "https://pokeapi.co/api/v2/pokemon/" + id;
 
   useEffect(() => {
-    if (props.data) {
-      //console.log("accessing data for pokemon abilities");
-      setAbilitiesArray(props.data.abilities);
+    if (data) {
+      // Accessing data for pokemon abilities
+      setAbilitiesArray(data.abilities);
     } else {
-      //console.log("fetching data for pokemon abilities");
+      // Fetching data for pokemon abilities
       fetch(pokeapi)
         .then((response) => response.json())
-        .then((data) => {
-          setAbilitiesArray(data.abilities);
+        .then((response) => {
+          setAbilitiesArray(response.abilities);
         })
         .catch((errorMsg) => {
           let errorOutput = `Error: ${errorMsg}`;
-          console.log(errorOutput);
           setError(errorOutput);
         });
     }
-  }, [pokeapi, props.data, props.id]);
+  }, [pokeapi, data, id]);
 
   const displayAbilities = () => {
     let abilities = [];

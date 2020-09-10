@@ -10,7 +10,7 @@ import "./../css/PokeDetail.css";
 // URL has to be followed by Pokemon number
 const detailURL = "https://pokeapi.co/api/v2/pokemon/";
 
-const PokeDetailCard = (props) => {
+const PokeDetailCard = ({ id }) => {
   const [data, setData] = useState({});
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +19,7 @@ const PokeDetailCard = (props) => {
     const getDetailData = () => {
       console.log("fetching details");
 
-      fetch(detailURL + props.id)
+      fetch(detailURL + id)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -34,14 +34,14 @@ const PokeDetailCard = (props) => {
 
     setIsLoading(true);
     getDetailData();
-  }, [props.id]);
+  }, [id]);
 
   return (
     <div className="container">
       {isLoading ? <div>Loading...</div> : null}
       {data && data.sprites ? (
         <div className="card">
-          <h1>Name: {props.id}</h1>
+          <h1>Name: {id}</h1>
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
           <Link to="/">Return</Link>

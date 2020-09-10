@@ -2,31 +2,31 @@ import React, { useState, useEffect } from "react";
 import ErrorHandler from "./ErrorHandler";
 import "./../css/Stats.css";
 
-const Stats = (props) => {
+const Stats = ({ id, data }) => {
   const [statsArray, setStatsArray] = useState([]);
   const [error, setError] = useState("");
 
-  console.log("ID:" + props.id);
+  console.log("ID:" + id);
 
-  const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/" + props.id;
+  const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/" + id;
 
   useEffect(() => {
-    if (props.data) {
-      //console.log("accessing data for pokemon stats");
-      setStatsArray(props.data.stats);
+    if (data) {
+      // Accessing data for pokemon stats
+      setStatsArray(data.stats);
     } else {
-      //console.log("fetching data for pokemon stats");
+      // Fetching data for pokemon stats
       fetch(pokeApiURL)
         .then((response) => response.json())
-        .then((data) => {
-          setStatsArray(data.stats);
+        .then((response) => {
+          setStatsArray(response.stats);
         })
         .catch((errorMsg) => {
           let errorOutput = `Error: ${errorMsg}`;
           setError(errorOutput);
         });
     }
-  }, [pokeApiURL, props.id, props.data]);
+  }, [pokeApiURL, id, data]);
 
   const displayStats = () => {
     let stats = [];

@@ -4,36 +4,36 @@ import "./../css/BerriesView.css";
 
 const Berries = () => {
   const [berries, setBerries] = useState();
-  const [url, setUrl] = useState("https://pokeapi.co/api/v2/berry/?offset=0&limit=20");
   const [error, setError] = useState("");
 
+  // Fetchin data from nested API
   useEffect(() => {
     const pendingPromises = [];
     for (let i = 1; i <= 64; i++) {
       pendingPromises.push(
         fetch("https://pokeapi.co/api/v2/berry/" + i)
-          .then((value) => value.json())
-          .then((value) => value)
+          .then((response) => response.json())
+          .then((response) => response)
           .catch((errorMsg) => {
             let errorOutput = `Error: ${errorMsg}`;
             setError(errorOutput);
           })
       );
     }
-    Promise.all(pendingPromises).then((value) => {
-      const pendingPromises2 = value.map((element) => {
+    Promise.all(pendingPromises).then((response) => {
+      const pendingPromises2 = response.map((element) => {
         return fetch(element.item.url)
-          .then((value) => value.json())
-          .then((value) => {
-            return value;
+          .then((response) => response.json())
+          .then((response) => {
+            return response;
           })
           .catch((errorMsg) => {
             let errorOutput = `Error: ${errorMsg}`;
             setError(errorOutput);
           });
       });
-      Promise.all(pendingPromises2).then((value) => {
-        setBerries(value);
+      Promise.all(pendingPromises2).then((response) => {
+        setBerries(response);
         setError("");
       });
     });
@@ -46,7 +46,7 @@ const Berries = () => {
             return (
               <div key={berry.name} id="berryWrapper">
                 <div id="berryName">{berry.name}</div>
-                <img id="berryImage" src={berry.sprites.default} />
+                <img alt="berry symbol" id="berryImage" src={berry.sprites.default} />
                 <div id="descriptionWrapper">
                   <div
                     className={`berryCategory
