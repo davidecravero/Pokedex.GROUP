@@ -53,13 +53,11 @@ const CombatView = ({
 
   return (
     <div className="combat">
-      <div>
-        {pokemon1} vs. {pokemon2}
-      </div>
       <div className="pokemon1">
         <button disabled={currentPlayer!==1} onClick={() => playerOneMove()}>FIGHT!</button>
         <PokeDetailCard id={pokemon1} transferData={setDataP1} includeMoves />
       </div>
+
       <div className="pokemon2">
         <button disabled={currentPlayer!==2} onClick={() => playerTwoMove()}>FIGHT!</button>
         <PokeDetailCard id={pokemon2} transferData={setDataP2} includeMoves />

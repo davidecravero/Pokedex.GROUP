@@ -37,25 +37,44 @@ const PokeList = ({ choiceOne, choiceTwo }) => {
   // Search bar functionality II: Filtering pokemon-data in terms of input value and storing in currentSearch
   useEffect(() => {
     if (data && data.length) {
-      const results = data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
+      const results = data.filter((item) =>
+        item.name.toLowerCase().includes(inputValue.toLowerCase())
+      );
       setCurrentSearch(results);
     }
   }, [data, inputValue]);
 
   return (
-    <div className="container">
+    <div className="container2">
       <div id="imageWrapper">
-        <img id="logo" src="https://i.redd.it/ihmki0cl1s331.jpg" alt="pokemon-logo" />
+        <img
+          id="logo"
+          src="https://i.redd.it/ihmki0cl1s331.jpg"
+          alt="pokemon-logo"
+        />
       </div>
       <div id="searchWrapper">
-        <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Search Pokémon" />
+        <input
+          id="searchInput"
+          type="text"
+          value={inputValue}
+          onChange={handleSearch}
+          placeholder="Search Pokémon"
+        />
       </div>
 
       <div className="list">
         {/* Displaying current search - if no input value in search bar, displaying all pokemon*/}
         {currentSearch && currentSearch.length
           ? currentSearch.map((item) => {
-              return <CardList key={item.name} data={item} choiceOne={choiceOne} choiceTwo={choiceTwo} />;
+              return (
+                <CardList
+                  key={item.name}
+                  data={item}
+                  choiceOne={choiceOne}
+                  choiceTwo={choiceTwo}
+                />
+              );
             })
           : null}
 

@@ -10,12 +10,13 @@ html {
 }
 
 nav {
-  background-color: rgb(50, 50, 120);
+  background-color: #5db9ff;
   color: white;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 3;
+  font-family: sans-serif;
 }
 
 ul {
@@ -31,31 +32,38 @@ li {
   font-size: 1.5em;
 }
 
+a:link {
+  text-decoration: none;
+}
 a:visited {
-  color: darkgrey;
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
 
 .playerOne {
   margin: 0 2.5em;
   font-style: italic;
-  color: #ee1515;
+  color: #363b81;
   font-size: 20px;
 }
 
 .playerTwo {
   margin: 0 2.5em;
   font-style: italic;
-  color: #f0f0f0;
+  color: #363b81;
   font-size: 20px;
 }
 
 .pOne {
-  color: #ee1515;
+  color: #363b81;
   font-size: 22px;
 }
 
 .pTwo {
-  color: #f0f0f0;
+  color: #363b81;
   font-size: 22px;
 }
 
@@ -71,4 +79,6 @@ a:visited {
   text-align: center;
 }
 
-.list {text-align:center;}
+.list {
+  text-align: center;
+}

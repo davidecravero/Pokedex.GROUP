@@ -50,8 +50,14 @@ const Stats = ({ id, data }) => {
                   : statsArray[element].stat.name === "speed"
                   ? "blue"
                   : ""
-              }`}>
-              <span className="bst" style={{ width: (statsArray[element].base_stat / 255) * 100 + "%" }}>
+              }`}
+            >
+              <span
+                className="bst"
+                style={{
+                  width: (statsArray[element].base_stat / 255) * 100 + "%",
+                }}
+              >
                 {statsArray[element].base_stat}
               </span>
             </div>
@@ -72,7 +78,7 @@ const Stats = ({ id, data }) => {
 
   return (
     <div>
-      <h3 id="stat">Stat</h3>
+      <h3 id="stat">Base stats</h3>
       <div id="titleBar">Basestat(BST): 0 - 255</div>
 
       {statsArray.length ? displayStats() : null}
