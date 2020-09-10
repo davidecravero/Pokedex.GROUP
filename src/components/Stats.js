@@ -6,7 +6,7 @@ const Stats = ({ id, data }) => {
   const [statsArray, setStatsArray] = useState([]);
   const [error, setError] = useState("");
 
-  console.log("ID:" + id);
+  //console.log("ID:" + id);
 
   const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/" + id;
 
