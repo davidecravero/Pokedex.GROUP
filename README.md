@@ -36,6 +36,9 @@ Natascha, Davide, Thomas, J
 * Berry Information page
 * Modular, reusable component structure
 
+# Structure
+<img src="./src/assets/structure.png" width="800">
+
 # Credits
 * API: [Poke API](https://pokeapi.co/)
 * Type Icons: Based on [Daniel Motta's free Pokémon iconset](https://www.sketchappsources.com/free-source/3954-pokemon-types-icons-sketch-freebie-resource.html) 
