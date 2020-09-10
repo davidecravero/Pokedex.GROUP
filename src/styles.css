@@ -10,8 +10,8 @@ html {
 }
 
 nav {
-  background-color: rgb(50, 50, 120);
-  color: white;
+  background-color: #5db9ff;
+  color: #5db9ff;
   position: fixed;
   top: 0;
   width: 100%;
@@ -30,32 +30,32 @@ li {
   color: white;
   font-size: 1.5em;
 }
-
+/*
 a:visited {
-  color: darkgrey;
+  color: #5db9ff;
 }
-
+*/
 .playerOne {
   margin: 0 2.5em;
   font-style: italic;
-  color: #ee1515;
+  color: #363b81;
   font-size: 20px;
 }
 
 .playerTwo {
   margin: 0 2.5em;
   font-style: italic;
-  color: #f0f0f0;
+  color: #363b81;
   font-size: 20px;
 }
 
 .pOne {
-  color: #ee1515;
+  color: #363b81;
   font-size: 22px;
 }
 
 .pTwo {
-  color: #f0f0f0;
+  color: #363b81;
   font-size: 22px;
 }
 
@@ -71,4 +71,6 @@ a:visited {
   text-align: center;
 }
 
-.list {text-align:center;}
+.list {
+  text-align: center;
+}

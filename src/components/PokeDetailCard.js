@@ -15,6 +15,10 @@ const PokeDetailCard = ({ id }) => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const pokeNameUpperCase = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   useEffect(() => {
     const getDetailData = () => {
       console.log("fetching details");
@@ -41,7 +45,7 @@ const PokeDetailCard = ({ id }) => {
       {isLoading ? <div>Loading...</div> : null}
       {data && data.sprites ? (
         <div className="card">
-          <h1>Name: {id}</h1>
+          <h1>{pokeNameUpperCase(id)}</h1>
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
           <Link to="/">Return</Link>

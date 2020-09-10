@@ -50,8 +50,14 @@ const Stats = ({ id, data }) => {
                   : statsArray[element].stat.name === "speed"
                   ? "blue"
                   : ""
-              }`}>
-              <span className="bst" style={{ width: (statsArray[element].base_stat / 255) * 100 + "%" }}>
+              }`}
+            >
+              <span
+                className="bst"
+                style={{
+                  width: (statsArray[element].base_stat / 255) * 100 + "%",
+                }}
+              >
                 {statsArray[element].base_stat}
               </span>
             </div>
