@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import PokeList from "./components/PokeList.js";
-import PokeDetail from "./components/PokeDetail.js";
-import BerriesView from "./components/BerriesView.js";
-import CombatView from "./components/CombatView.js";
+import PokeList from "./components/PokeList";
+import PokeDetail from "./components/PokeDetail";
+import BerriesView from "./components/BerriesView";
+import CombatView from "./components/CombatView";
 import "./styles.css";
 
 function App() {
