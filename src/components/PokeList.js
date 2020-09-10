@@ -9,7 +9,7 @@ const PokeList = (props) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [inputValue, setInputValue] = useState("");
-  const [currentSearch, setCurrentSearch] = useState([]);
+  const [currentSearch, setCurrentSearch] = useState("");
 
   const getListData = () => {
     console.log("fetching data");
@@ -55,6 +55,7 @@ const PokeList = (props) => {
       </div>
       <div id="searchWrapper">
         <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Search Pokémon" />
+
       </div>
 
       <div className="list">
