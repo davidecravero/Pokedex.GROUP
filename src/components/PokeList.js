@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+
 import ErrorHandler from "./ErrorHandler";
 import CardList from "./../components/CardList.js";
+
 import "./../css/PokeList.css";
 
 const listUrl = "https://pokeapi.co/api/v2/pokemon?limit=151";
@@ -29,15 +31,17 @@ const PokeList = (props) => {
   }, []);
 
   const handleSearch = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setInputValue(e.target.value);
   };
 
   useEffect(() => {
+
     if (data && data.length) {
       const results = data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
       setCurrentSearch(results);
     }
+
   }, [data, inputValue]);
 
   return (
@@ -47,6 +51,7 @@ const PokeList = (props) => {
       </div>
       <div id="searchWrapper">
         <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Search Pokémon" />
+
       </div>
 
       <div className="list">
