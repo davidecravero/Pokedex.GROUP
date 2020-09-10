@@ -34,7 +34,7 @@ const PokeList = ({ choiceOne, choiceTwo }) => {
     setInputValue(e.target.value);
   };
 
-  // Search bar functionality II: Filtering Pokemon-data in terms of input value and storing in currentSearch
+  // Search bar functionality II: Filtering pokemon-data in terms of input value and storing in currentSearch
   useEffect(() => {
     if (data && data.length) {
       const results = data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
@@ -52,7 +52,7 @@ const PokeList = ({ choiceOne, choiceTwo }) => {
       </div>
 
       <div className="list">
-        {/* Displaying current search - if no input value in search bar, displaying all Pokemon*/}
+        {/* Displaying current search - if no input value in search bar, displaying all pokemon*/}
         {currentSearch && currentSearch.length
           ? currentSearch.map((item) => {
               return <CardList key={item.name} data={item} choiceOne={choiceOne} choiceTwo={choiceTwo} />;

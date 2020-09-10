@@ -10,10 +10,10 @@ const Abilities = ({ id, data }) => {
 
   useEffect(() => {
     if (data) {
-      //console.log("accessing data for pokemon abilities");
+      // Accessing data for pokemon abilities
       setAbilitiesArray(data.abilities);
     } else {
-      //console.log("fetching data for pokemon abilities");
+      // Fetching data for pokemon abilities
       fetch(pokeapi)
         .then((response) => response.json())
         .then((response) => {

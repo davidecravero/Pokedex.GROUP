@@ -12,10 +12,10 @@ const Stats = ({ id, data }) => {
 
   useEffect(() => {
     if (data) {
-      //console.log("accessing data for pokemon stats");
+      // Accessing data for pokemon stats
       setStatsArray(data.stats);
     } else {
-      //console.log("fetching data for pokemon stats");
+      // Fetching data for pokemon stats
       fetch(pokeApiURL)
         .then((response) => response.json())
         .then((response) => {
