@@ -78,7 +78,7 @@ const Stats = ({ id, data }) => {
 
   return (
     <div>
-      <h3 id="stat">Stat</h3>
+      <h3 id="stat">Base stats</h3>
       <div id="titleBar">Basestat(BST): 0 - 255</div>
 
       {statsArray.length ? displayStats() : null}

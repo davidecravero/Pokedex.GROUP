@@ -39,13 +39,14 @@ const CardList = ({ data, choiceOne, choiceTwo }) => {
 
   return (
     <div className="poke-card-list">
-      <h2>{pokeNameUpperCase(data.name)}</h2>
-      <h3>#{id}</h3>
-      {HQimg(data.name, id)}
-
+      <Link to={`/detail/${data.name}`}>
+        <h3>{pokeNameUpperCase(data.name)}</h3>
+        <h4>#{id}</h4>
+        {HQimg(data.name, id)}
+      </Link>
       {/* Possibility to add more data from already existing components */}
       {/* <Stats id={id} /> */}
-      <Link to={`/detail/${data.name}`}>View Details</Link>
+
       <div className="buttonWrapper">
         <button id="btnLeft" onClick={() => choiceOne(data.name)}>
           Player 1

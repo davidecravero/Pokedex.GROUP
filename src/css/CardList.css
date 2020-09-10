@@ -1,11 +1,23 @@
 h1 {
   font-size: 2em;
   text-align: center;
+  font-family: sans-serif;
 }
 
 button {
   margin-right: 0.5em;
   margin-left: 0.5em;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
 
 .poke-card-list {
@@ -14,11 +26,16 @@ button {
   transition: 0.3s;
   padding: 1rem;
   text-align: center;
+  font-family: sans-serif;
+}
+
+.poke-card-list h4 {
+  font-weight: 400;
 }
 
 .poke-card-list:hover {
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.5);
-  background-color: #5db9ff;
+  background-color: rgb(207, 229, 236);
 }
 
 .poke-card-list h1 {

@@ -9,12 +9,10 @@ const CombatView = ({
 }) => {
   return (
     <div className="combat">
-      <div>
-        {pokemon1} vs. {pokemon2}
-      </div>
       <div className="pokemon1">
         <PokeDetailCard id={pokemon1} />
       </div>
+
       <div className="pokemon2">
         <PokeDetailCard id={pokemon2} />
       </div>
