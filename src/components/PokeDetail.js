@@ -4,7 +4,7 @@ import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Types from "./Types";
 import Sprites from "./Sprites";
-import PokeDetailCard from "./PokeDetailCard.js";
+import PokeDetailCard from "./PokeDetailCard";
 import "./../css/PokeDetail.css";
 
 

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PokeDetailCard from "./PokeDetailCard"
 import "./../css/CombatView.css";
-import { isPropertySignature } from "typescript";
 
 const CombatView = ({
   match: {
