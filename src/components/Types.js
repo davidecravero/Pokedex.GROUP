@@ -32,9 +32,7 @@ const Types = (props) => {
   return (
     <div>
       <h1>Types</h1>
-      {}
       {typesArray.length ? displayTypes() : null}
-      {}
     </div>
   );
 };
