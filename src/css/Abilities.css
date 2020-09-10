@@ -1,3 +1,13 @@
 #abilities {
-  height: 80px;
+  /*height: 80px;*/
+}
+
+#abilities h1 {
+  background:#fbd743;
+  padding:12px 0px;
+  font-size:24px;
+}
+
+.ability-text {
+  text-transform:capitalize;  
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ErrorHandler from "./ErrorHandler";
+import HoverIcon from "./HoverIcon";
 import "./../css/Types.css";
 
 const Types = ({ id, data }) => {
@@ -30,7 +31,8 @@ const Types = ({ id, data }) => {
     let types = [];
 
     for (let key in typesArray) {
-      types.push(<div key={typesArray[key].type.name}>types: {typesArray[key].type.name};</div>);
+      //types.push(<div key={typesArray[key].type.name}>types: {typesArray[key].type.name};</div>);
+      types.push(<HoverIcon key={typesArray[key].type.name} type={typesArray[key].type.name} />)
     }
     return types;
   };
@@ -38,8 +40,10 @@ const Types = ({ id, data }) => {
   return (
     <div id="types">
       <h1>Types</h1>
-      {typesArray.length ? displayTypes() : null}
-      {error ? <ErrorHandler errorMessage={error} /> : null}
+      <div className="types-icons">
+        {typesArray.length ? displayTypes() : null}
+        {error ? <ErrorHandler errorMessage={error} /> : null}
+      </div>
     </div>
   );
 };

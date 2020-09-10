@@ -30,7 +30,8 @@ const Abilities = ({ id, data }) => {
     let abilities = [];
 
     for (let key in abilitiesArray) {
-      abilities.push(<div key={abilitiesArray[key].ability.name}>abilities: {abilitiesArray[key].ability.name};</div>);
+      let ability=abilitiesArray[key].ability.name;
+      abilities.push(<div key={abilitiesArray[key].ability.name} className="ability-text">{ability}</div>);
     }
     return abilities;
   };
