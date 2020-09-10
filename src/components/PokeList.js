@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import CardList from "./../components/CardList.js";
+import CardList from "./../components/CardList";
 import "./../css/PokeList.css";
 
 const listURL = "https://pokeapi.co/api/v2/pokemon?limit=151";
@@ -32,26 +32,21 @@ const PokeList = (props) => {
   }, []);
 
   const handleSearch = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setInputValue(e.target.value);
   };
 
   useEffect(() => {
-    console.log("id" + currentSearch);
-  }, [currentSearch]);
-
-  const handleFilter = () => {
-    let result = [];
-    data.filter((element) => {
-      result.push(element.name.toLowerCase().includes(inputValue.toLowerCase()));
-    });
-    console.log(result);
-    for (let item of result) {
-      if (item == true) {
-        setCurrentSearch(result.indexOf(item));
+    //console.log("input changed!"+inputValue)
+    if (data && data.length) {
+      const results = data.filter((item) => {
+        return item.name.toLowerCase().includes(inputValue.toLowerCase());
       }
+      );
+      setCurrentSearch(results);
     }
-  };
+
+  }, [data, inputValue]);
 
   return (
     <div className="container">
@@ -59,16 +54,13 @@ const PokeList = (props) => {
         <img id="logo" src="https://i.redd.it/ihmki0cl1s331.jpg" alt="pokemon-logo" />
       </div>
       <div id="searchWrapper">
-        <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} />
-        <button id="searchButton" onClick={handleFilter}>
-          Search Pokémon
-        </button>
+        <input id="searchInput" type="text" value={inputValue} onChange={handleSearch} placeholder="Search Pokémon" />
+
       </div>
 
       <div className="list">
-        {data
-          ? data.map((item) => {
-              console.log("HelloYou");
+        {currentSearch && currentSearch.length
+          ? currentSearch.map((item) => {
               return <CardList key={item.name} data={item} choiceOne={props.choiceOne} choiceTwo={props.choiceTwo} />;
             })
           : null}
