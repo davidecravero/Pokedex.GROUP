@@ -53,7 +53,7 @@ const CardList = ({ data, choiceOne, choiceTwo }) => {
         <img
           id="pokeBall"
           alt="Poke-Ball"
-          src="https://i.etsystatic.com/12696278/r/il/bb21a8/1868980486/il_570xN.1868980486_d6zs.jpg"
+          src="https://lh3.googleusercontent.com/proxy/vq-0h5jw142poYgIWblQ09Nwb8wdfD7JV_2GKrJTfLARrwC0Mq1HgI-1ksBtk4rxuoT8lWNKY_RNIE_xRre2VEUlA7V-PgPKDOdur0gT7mPu7YzoG9OTD1-PClzM4-Cb5g"
         />
         <button id="btnRight" onClick={() => choiceTwo(data.name)}>
           Player 2

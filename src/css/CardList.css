@@ -18,7 +18,7 @@ button {
 
 .poke-card-list:hover {
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.5);
-  background-color: #fbd743;
+  background-color: #5db9ff;
 }
 
 .poke-card-list h1 {
@@ -39,8 +39,7 @@ button {
 }
 
 #btnLeft {
-  background-color: #ff1f1f;
-  color: white;
+  background-color: #f2f2f2;
   border: none;
   border-radius: 3px;
 }
