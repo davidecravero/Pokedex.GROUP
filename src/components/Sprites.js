@@ -2,7 +2,7 @@ import React from "react";
 import "./../css/Sprites.css";
 
 const Sprites = ({ data }) => {
-  console.log(data.id);
+  //console.log(data.id);
 
   return (
     <div id="imageWrapper">
