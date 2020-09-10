@@ -61,6 +61,7 @@ const PokeList = ({ choiceOne, choiceTwo }) => {
           value={inputValue}
           onChange={handleSearch}
           placeholder="Search Pokémon"
+          autocomplete="off"
         />
       </div>
 

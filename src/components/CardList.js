@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+/* keep those links available for demo purposes 
+import Types from "./Types"; 
+import Stats from "./Stats"; */
 import "./../css/CardList.css";
-import pokeball from './../assets/pokeball-illustrative-small.png';
+import pokeball from "./../assets/pokeball-illustrative-small.png";
+
+
 
 const highResImageURL =
   "https://pokeres.bastionbot.org/images/pokemon/[id].png";
@@ -47,6 +52,7 @@ const CardList = ({ data, choiceOne, choiceTwo }) => {
       </Link>
       {/* Possibility to add more data from already existing components */}
       {/* <Stats id={id} /> */}
+      {/* <Types id={id} /> */}
 
       <div className="buttonWrapper">
         <button id="btnLeft" onClick={() => choiceOne(data.name)}>
