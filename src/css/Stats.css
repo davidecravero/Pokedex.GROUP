@@ -54,16 +54,18 @@
 
 .wrapper {
   display: flex;
+  overflow:hidden;
   margin-bottom: 0.2em;
   justify-content: center;
   align-items: center;
 }
 
 .statName {
-  font-size: 1.6vw;
+  font-size: 18px;
   font-weight: bold;
   display: inline-block;
-  width: 130px;
+  width:20%;
+  min-width:160px;
   text-align: right;
   margin-right: 1em;
   white-space: nowrap;
@@ -94,5 +96,42 @@
   font-weight: bold;
   margin-left: -50px;
   z-index: 2;
-  width: 20px;
+  width: 30px;
+  text-align:right;
+}
+
+@media only screen and (max-width: 1000px) {
+  .combat .meter {width:30%}
+  .combat .statName {min-width:130px;}
+}
+
+
+@media only screen and (max-width: 800px) {
+  .meter {width:40%;}
+  .statName {
+    font-size:16px;
+    width:30%;
+    min-width:100px;
+  }
+  #imageWrapper {overflow:hidden; }
+  #imageWrapper img {width:100%;}
+  .combat .wrapper {display:block; text-align:center;}
+  .combat .meter {width:90%; margin:0 auto; }
+  .combat .statName {
+    display:block;
+    width:100%;
+    text-align:center;
+  }
+  .combat .bst-text {color:#333; margin:5px 0 10px 0; width:100%; text-align:center;}
+}
+
+@media only screen and (max-width: 400px) {
+  .wrapper {display:block;}
+  .meter {width:90%;}
+  .statName {
+    display:block;
+    width:100%;
+    text-align:center;
+  }
+  .bst-text {color:#333; margin:5px 0 10px 0; width:100%; text-align:center;}
 }

@@ -10,8 +10,8 @@ const CombatView = ({
 }) => {
   const [dataP1,setDataP1]=useState();
   const [dataP2,setDataP2]=useState();
-  const [statusP1,setStatusP1]=useState("Is ready to fight!");
-  const [statusP2,setStatusP2]=useState("Is moving next!");
+  const [statusP1,setStatusP1]=useState("is ready to fight!");
+  const [statusP2,setStatusP2]=useState("is moving next!");
   const [currentPlayer,setCurrentPlayer]=useState(1);
   
 
@@ -30,8 +30,8 @@ const CombatView = ({
     if (P2_stats_hp.base_stat<=0) {
       P2_stats_hp.base_stat=0;
       console.log(`${P1_name} has won against ${P2_name}`);
-      setStatusP1(`LOSES!`);
-      setStatusP2(`WINS!`);
+      setStatusP1(`WINS!`);
+      setStatusP2(`LOSES!`);
       // no one can play anymore
       setCurrentPlayer(0);
     }else{
@@ -68,12 +68,12 @@ const CombatView = ({
   return (
     <div className="combat">
       <div className="pokemon1">
-        <button disabled={currentPlayer!==1} onClick={() => playerOneMove()}>FIGHT!</button>
+        {/*<button disabled={currentPlayer!==1} onClick={() => playerOneMove()}>FIGHT!</button>*/}
         <PokeDetailCard id={pokemon1} transferData={setDataP1} moveStatus={statusP1} includeMoves moveHandler={playerOneMove} btnDisabled={currentPlayer!==1}/>
       </div>
 
       <div className="pokemon2">
-        <button disabled={currentPlayer!==2} onClick={() => playerTwoMove()}>FIGHT!</button>
+        {/* <button disabled={currentPlayer!==2} onClick={() => playerTwoMove()}>FIGHT!</button> */}
         <PokeDetailCard id={pokemon2} transferData={setDataP2} moveStatus={statusP2} includeMoves moveHandler={playerTwoMove} btnDisabled={currentPlayer!==2}/>
       </div>
     </div>
