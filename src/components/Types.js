@@ -44,9 +44,6 @@ const Types = ({ id, data }) => {
 
   return (
     <div id="types">
-      <h3>Types</h3>
-      {typesArray.length ? displayTypes() : null}
-      {error ? <ErrorHandler errorMessage={error} /> : null}
       <h1>Types</h1>
       <div className="types-icons">
         {typesArray.length ? displayTypes() : null}
