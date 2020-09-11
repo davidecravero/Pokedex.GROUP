@@ -6,7 +6,7 @@ const Stats = ({ id, data }) => {
   const [statsArray, setStatsArray] = useState([]);
   const [error, setError] = useState("");
 
-  console.log("ID:" + id);
+  //console.log("ID:" + id);
 
   const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/" + id;
 
@@ -56,11 +56,16 @@ const Stats = ({ id, data }) => {
                 className="bst"
                 style={{
                   width: (statsArray[element].base_stat / 255) * 100 + "%",
+                  opacity: ((statsArray[element].base_stat / 255) * 100<1?0:1)
                 }}
               >
-                {statsArray[element].base_stat}
+                {/*{statsArray[element].base_stat}*/}
               </span>
+
             </div>
+            <span className="bst-text">
+              {statsArray[element].base_stat}
+              </span>
           </div>
         </div>
       );

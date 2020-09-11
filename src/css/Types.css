@@ -1,3 +1,12 @@
 #types {
+<<<<<<< HEAD
   min-height: 80px;
+=======
+  /*height: 180px;*/
+}
+#types h1 {
+  background:#fbd743;
+  padding:12px 0px;
+  font-size:24px;
+>>>>>>> 7560cb54a6b0f6f7f64000b1e2f6a6acc0d7ef9c
 }

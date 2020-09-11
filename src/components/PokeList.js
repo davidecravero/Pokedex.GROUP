@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ErrorHandler from "./ErrorHandler";
 import CardList from "./CardList.js";
 import "./../css/PokeList.css";
+import pokelogo from './../assets/pokemon-logo.png';
 
 const listUrl = "https://pokeapi.co/api/v2/pokemon?limit=151";
 
@@ -49,7 +50,7 @@ const PokeList = ({ choiceOne, choiceTwo }) => {
       <div id="imageWrapper">
         <img
           id="logo"
-          src="https://i.redd.it/ihmki0cl1s331.jpg"
+          src={pokelogo}
           alt="pokemon-logo"
         />
       </div>
@@ -60,6 +61,7 @@ const PokeList = ({ choiceOne, choiceTwo }) => {
           value={inputValue}
           onChange={handleSearch}
           placeholder="Search Pokémon"
+          autocomplete="off"
         />
       </div>
 

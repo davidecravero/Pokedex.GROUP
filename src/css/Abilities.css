@@ -1,4 +1,18 @@
 #abilities {
+<<<<<<< HEAD
   min-height: 80px;
   margin-top: 30px;
+=======
+  /*height: 80px;*/
+>>>>>>> 7560cb54a6b0f6f7f64000b1e2f6a6acc0d7ef9c
+}
+
+#abilities h1 {
+  background:#fbd743;
+  padding:12px 0px;
+  font-size:24px;
+}
+
+.ability-text {
+  text-transform:capitalize;  
 }
