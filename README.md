@@ -12,7 +12,7 @@ Natascha, Davide, Thomas, J
 * CSS (external styling)
 * GIT/GITHUB (branches per team member)
 * [Codesandbox.io](https://codesandbox.io) (testing, collaborative coding, bound to Github)
-* [Trello] (https://trello.com/) project management)
+* [Trello] (https://trello.com) (project management)
 
 # How to run locally
 * System requirements: [Node.js](https://nodejs.org/)
