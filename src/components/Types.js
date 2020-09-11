@@ -31,12 +31,6 @@ const Types = ({ id, data }) => {
     let types = [];
 
     for (let key in typesArray) {
-      types.push(
-        <div key={typesArray[key].type.name}>
-          types: {typesArray[key].type.name};
-        </div>
-      );
-
       //types.push(<div key={typesArray[key].type.name}>types: {typesArray[key].type.name};</div>);
       types.push(
         <HoverIcon
