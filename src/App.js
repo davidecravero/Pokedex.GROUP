@@ -24,7 +24,9 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Pokemons</Link>
+            <Link className="link" to="/">
+              Pokemons
+            </Link>
           </li>
           <li>
             <div id="fightBar">
@@ -35,11 +37,8 @@ function App() {
                 </div>
               ) : null}
 
-              {displayPlayerOne &&
-              displayPlayerOne.length &&
-              displayPlayerTwo &&
-              displayPlayerTwo.length ? (
-                <Link to={`/Combat/${displayPlayerOne}/${displayPlayerTwo}`}>
+              {displayPlayerOne && displayPlayerOne.length && displayPlayerTwo && displayPlayerTwo.length ? (
+                <Link className="link" to={`/Combat/${displayPlayerOne}/${displayPlayerTwo}`}>
                   Combat
                 </Link>
               ) : null}
@@ -53,7 +52,9 @@ function App() {
             </div>
           </li>
           <li>
-            <Link to="/Berries">Berries</Link>
+            <Link className="link" to="/Berries">
+              Berries
+            </Link>
           </li>
         </ul>
       </nav>

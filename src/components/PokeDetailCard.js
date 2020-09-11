@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Types from "./Types";
@@ -11,7 +11,7 @@ import "./../css/PokeDetail.css";
 const detailURL = "https://pokeapi.co/api/v2/pokemon/";
 
 const PokeDetailCard = (props) => {
-  const {id, transferData, includeMoves}=props;
+  const { id, transferData, includeMoves } = props;
   const [data, setData] = useState({});
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -23,44 +23,36 @@ const PokeDetailCard = (props) => {
   useEffect(() => {
     const getDetailData = () => {
       //console.log("fetching details");
-      
+
       fetch(detailURL + id)
         .then((response) => response.json())
         .then((data) => {
-          
-          
-          if(transferData){
-            console.log("Transferring data to parent")
-            
+          if (transferData) {
+            console.log("Transferring data to parent");
+
             // if transferData and includeMoves is set in parent
             // e.g. <PokeDetailCard [...] transferData={[...]} includeMoves />
             // then moves are fetched into the dataset as well
-            if (includeMoves){
-              console.log("Attaching moves data to parent")
-              const pendingMovesFetches = data.moves.map(
-                (element, index) => {
-                  return fetch(element.move.url)
-                    .then((rawMove) => rawMove.json())
-                    .then((formattedMove) => formattedMove)
-                    .catch((e) => console.log(e));
-                }
-              );
-      
+            if (includeMoves) {
+              console.log("Attaching moves data to parent");
+              const pendingMovesFetches = data.moves.map((element, index) => {
+                return fetch(element.move.url)
+                  .then((rawMove) => rawMove.json())
+                  .then((formattedMove) => formattedMove)
+                  .catch((e) => console.log(e));
+              });
+
               // Promise.all takes a pending promise array as a param
               // then will pass the finished promises array down
               // update the pokemon with the finished promises array for moves
-              Promise.all(pendingMovesFetches)
-                .then((finishedPromise) => {
-                  data.moves = finishedPromise;
-                  //console.log(data.moves);
-                  
-                  transferData(data);  
-                })
-              
+              Promise.all(pendingMovesFetches).then((finishedPromise) => {
+                data.moves = finishedPromise;
+                //console.log(data.moves);
 
-            }else{
-              
-              transferData(data);  
+                transferData(data);
+              });
+            } else {
+              transferData(data);
             }
           }
           setData(data);
@@ -84,9 +76,6 @@ const PokeDetailCard = (props) => {
           <h1>{pokeNameUpperCase(id)}</h1>
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
-          <button className="btn-return">
-            <Link to="/">Return</Link>
-          </button>
           {/*passing existing data to avoid refetch for detail components*/}
           <Abilities id={data.id} data={data} />
           <Types id={data.id} data={data} />
