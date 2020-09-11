@@ -9,6 +9,9 @@ html {
   margin-top: 50px;
 }
 
+/* fix jumping issues with scrollbar visible/non-visible */
+html { overflow-y:scroll; }
+
 nav {
   background-color: #5db9ff;
   color: white;
