@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Types from "./Types";
