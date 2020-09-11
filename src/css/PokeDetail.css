@@ -50,3 +50,14 @@
   outline:none;
   border-color:#ee1515;
 }
+
+@media only screen and (max-width: 800px) {
+  .card h1 {font-size:18px;}
+  .card poke-move-status {font-size:16px;}
+}
+
+@media only screen and (max-width: 400px) {
+  .card h1 {font-size: 14px;}
+  .card poke-move-status {font-size:12px;}
+  .btn-fight {font-size: 12px;}
+}

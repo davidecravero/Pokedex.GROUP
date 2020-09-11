@@ -112,9 +112,11 @@ li {
   #fightBar {
     width: 100%;
   }
-
+  .container {
+    margin-top:100px;
+  }
   #imageWrapper {
-    margin-top: 100px;
+    margin-top: 10px;
   }
 }
 
@@ -126,8 +128,10 @@ li {
     align-items: none;
     margin: 1em 0;
   }
-
+  .container {
+    margin-top:100px;
+  }
   #imageWrapper {
-    margin-top: 100px;
+    margin-top: 10px;
   }
 }
