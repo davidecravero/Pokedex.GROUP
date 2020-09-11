@@ -53,7 +53,6 @@ li {
 }
 
 .playerOne {
-  margin: 0 2.5em;
   font-style: italic;
   color: #003a70;
   font-size: 20px;
@@ -61,7 +60,6 @@ li {
 }
 
 .playerTwo {
-  margin: 0 2.5em;
   font-style: italic;
   color: #003a70;
   font-size: 20px;
@@ -71,11 +69,24 @@ li {
 .pOne {
   color: #003a70;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .pTwo {
   color: #003a70;
   font-size: 20px;
+  font-weight: bold;
+}
+
+.playerWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 2em;
+}
+
+.list {
+  text-align: center;
 }
 
 #fightBar {
@@ -84,27 +95,39 @@ li {
   align-items: center;
 }
 
-.playerWrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.list {
-  text-align: center;
-}
-
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 400px) and (max-width: 800px) {
   ul {
     flex-direction: column;
     height: 8em;
-    margin: 0;
     justify-content: none;
     align-items: none;
-    margin-right: 20px;
+    margin: 1em 0;
   }
 
   .playerWrapper {
-    margin: 0 -0.5em;
+    width: 150px;
+    text-align: center;
+  }
+
+  #fightBar {
+    width: 100%;
+  }
+
+  #imageWrapper {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  ul {
+    flex-direction: column;
+    height: 8em;
+    justify-content: none;
+    align-items: none;
+    margin: 1em 0;
+  }
+
+  #imageWrapper {
+    margin-top: 100px;
   }
 }
