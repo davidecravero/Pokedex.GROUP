@@ -22,8 +22,8 @@
   margin: 3px;
   border: 1px solid #333;
 }
-.poke-hovericon:hover,
-.poke-type-icon:hover {
+.poke-hovericon:hover, .combat .poke-hovericon:hover,
+.poke-type-icon:hover, .combat .poke-type-icon:hover {
   width: 120px;
 }
 
@@ -43,6 +43,22 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+@media only screen and (max-width: 600px) {
+  .combat .poke-hovericon,
+  .combat .poke-type-icon {
+    width:30px;
+    height:30px;
+    border-radius: 15px;
+    background-size:30px;
+  }
+  .combat .poke-hovericon:hover,
+  .combat .poke-type-icon:hover {
+    width: 80px;
+  }
+  .combat .poke-hovericon .description {
+    margin-left: 31px;
+  }
+}
 .bug {
   background-color: #a8b821;
   background-opacity: 0.5;

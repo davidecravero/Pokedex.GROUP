@@ -80,17 +80,18 @@ const PokeDetailCard = (props) => {
           {moveStatus!=undefined?(<span className="poke-move-status">{moveStatus}</span>):(null)}
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
-          <button className="btn-return">
+          {/* <button className="btn-return">
             <Link to="/">Return</Link>
-          </button>
+          </button> */}
           {moveHandler?(<button className="btn-fight" disabled={btnDisabled} onClick={moveHandler}>
            FIGHT! 
           </button>):(null)}
 
           {/*passing existing data to avoid refetch for detail components*/}
-          <Abilities id={data.id} data={data} />
-          <Types id={data.id} data={data} />
           <Stats id={data.id} data={data} />
+          <Types id={data.id} data={data} />
+          <Abilities id={data.id} data={data} />
+          
         </div>
       ) : null}
       {error ? <ErrorHandler errorMessage={error} /> : null}
