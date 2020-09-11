@@ -1,10 +1,119 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
+  margin-top: 50px;
+}
+
+/* fix jumping issues with scrollbar visible/non-visible */
+html { overflow-y:scroll; }
+
+nav {
+  background-color: #5db9ff;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4em;
+}
+
+li {
+  color: white;
+  font-size: 25px;
+}
+
+li a:visited {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.playerOne {
+  margin: 0 2.5em;
+  font-style: italic;
+  color: #363b81;
+  font-size: 20px;
+}
+
+.playerTwo {
+  margin: 0 2.5em;
+  font-style: italic;
+  color: #363b81;
+  font-size: 20px;
+}
+
+.pOne {
+  color: #363b81;
+  font-size: 20px;
+}
+
+.pTwo {
+  color: #363b81;
+  font-size: 20px;
+}
+
+#fightBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.list {
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  li {
+    font-size: 20px;
+  }
+  .playerOne,
+  .playerTwo,
+  .pOne,
+  .pTwo {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  li {
+    font-size: 15px;
+  }
+  .playerOne,
+  .playerTwo,
+  .pOne,
+  .pTwo {
+    font-size: 12px;
+  }
 }

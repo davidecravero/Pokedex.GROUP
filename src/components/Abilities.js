@@ -1,28 +1,39 @@
 import React, { useState, useEffect } from "react";
+import ErrorHandler from "./ErrorHandler";
+import "./../css/Abilities.css";
 
-const Abilities = (props) => {
-
+const Abilities = ({ id, data }) => {
   const [abilitiesArray, setAbilitiesArray] = useState([]);
-  const pokeapi = "https://pokeapi.co/api/v2/pokemon/"+props.id;
+  const [error, setError] = useState("");
+
+  const pokeapi = "https://pokeapi.co/api/v2/pokemon/" + id;
 
   useEffect(() => {
-    fetch(pokeapi)
-      .then((response) => response.json())
-      .then((data) => {
-        setAbilitiesArray(data.abilities);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    if (data) {
+      // Accessing data for pokemon abilities
+      setAbilitiesArray(data.abilities);
+    } else {
+      // Fetching data for pokemon abilities
+      fetch(pokeapi)
+        .then((response) => response.json())
+        .then((response) => {
+          setAbilitiesArray(response.abilities);
+        })
+        .catch((errorMsg) => {
+          let errorOutput = `Error: ${errorMsg}`;
+          setError(errorOutput);
+        });
+    }
+  }, [pokeapi, data, id]);
 
   const displayAbilities = () => {
     let abilities = [];
-   
+
     for (let key in abilitiesArray) {
+      let ability = abilitiesArray[key].ability.name;
       abilities.push(
-        <div key={abilitiesArray[key].ability.name}>
-          abilities: {abilitiesArray[key].ability.name};
+        <div key={abilitiesArray[key].ability.name} className="ability-text">
+          {ability}
         </div>
       );
     }
@@ -30,11 +41,10 @@ const Abilities = (props) => {
   };
 
   return (
-    <div>
-      <h1>Abilities</h1>
-      {}
+    <div id="abilities">
+      <h3>Abilities</h3>
       {abilitiesArray.length ? displayAbilities() : null}
-      {}
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.combat {
+  text-align: center;
+}
+.combat .pokemon1,
+.combat .pokemon2 {
+  width: 40vw;
+  display: inline-block;
+}
+
+/*.combat .pokemon1 {background-color:yellow;}
+.combat .pokemon2 {background-color:red;}*/

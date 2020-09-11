@@ -1,38 +1,54 @@
 import React, { useState, useEffect } from "react";
+import ErrorHandler from "./ErrorHandler";
+import HoverIcon from "./HoverIcon";
+import "./../css/Types.css";
 
-const Types = (props) => {
+const Types = ({ id, data }) => {
   const [typesArray, setTypesArray] = useState([]);
+  const [error, setError] = useState("");
 
-  const testURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
+  const pokeAPI = "https://pokeapi.co/api/v2/pokemon/" + id;
 
   useEffect(() => {
-    fetch(testURL)
-      .then((response) => response.json())
-      .then((data) => {
-        setTypesArray(data.types);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    if (data) {
+      //console.log("accessing data for pokemon types");
+      setTypesArray(data.types);
+    } else {
+      //console.log("fetching data for pokemon types");
+      fetch(pokeAPI)
+        .then((response) => response.json())
+        .then((response) => {
+          setTypesArray(response.types);
+        })
+        .catch((errorMsg) => {
+          let errorOutput = `Error: ${errorMsg}`;
+          setError(errorOutput);
+        });
+    }
+  }, [pokeAPI, data, id]);
 
   const displayTypes = () => {
     let types = [];
-   
+
     for (let key in typesArray) {
+      //types.push(<div key={typesArray[key].type.name}>types: {typesArray[key].type.name};</div>);
       types.push(
-        <div key={typesArray[key].type.name}>
-          types: {typesArray[key].type.name};
-        </div>
+        <HoverIcon
+          key={typesArray[key].type.name}
+          type={typesArray[key].type.name}
+        />
       );
     }
     return types;
   };
 
   return (
-    <div>
+    <div id="types">
       <h1>Types</h1>
-      {typesArray.length ? displayTypes() : null}
+      <div className="types-icons">
+        {typesArray.length ? displayTypes() : null}
+        {error ? <ErrorHandler errorMessage={error} /> : null}
+      </div>
     </div>
   );
 };

@@ -1,7 +1,14 @@
 #abilities {
-  
-    height: 120px;
-    text-align: center;
-    background-color:#ff0022;
-  
-  }
+  min-height: 80px;
+  margin-top: 30px;
+}
+
+#abilities h1 {
+  background: #fbd743;
+  padding: 12px 0px;
+  font-size: 24px;
+}
+
+.ability-text {
+  text-transform: capitalize;
+}

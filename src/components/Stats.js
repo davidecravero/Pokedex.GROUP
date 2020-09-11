@@ -1,30 +1,35 @@
 import React, { useState, useEffect } from "react";
+import ErrorHandler from "./ErrorHandler";
 import "./../css/Stats.css";
 
-const Stats = (props) => {
+const Stats = ({ id, data }) => {
   const [statsArray, setStatsArray] = useState([]);
-  console.log ("ID:"+props.id);
-  //console.log(props.transferData);
+  const [error, setError] = useState("");
 
-  const testURL = "https://pokeapi.co/api/v2/pokemon/"+props.id;
+  //console.log("ID:" + id);
+
+  const pokeApiURL = "https://pokeapi.co/api/v2/pokemon/" + id;
 
   useEffect(() => {
-    fetch(testURL)
-      .then((response) => response.json())
-      .then((data) => {
-        setStatsArray(data.stats);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    if (data) {
+      // Accessing data for pokemon stats
+      setStatsArray(data.stats);
+    } else {
+      // Fetching data for pokemon stats
+      fetch(pokeApiURL)
+        .then((response) => response.json())
+        .then((response) => {
+          setStatsArray(response.stats);
+        })
+        .catch((errorMsg) => {
+          let errorOutput = `Error: ${errorMsg}`;
+          setError(errorOutput);
+        });
+    }
+  }, [pokeApiURL, id, data]);
 
   const displayStats = () => {
     let stats = [];
-    console.log(statsArray);
-    console.log(statsArray[1]);
-    console.log(statsArray[1].base_stat);
-    console.log(statsArray[1].stat.name);
     for (let element in statsArray) {
       stats.push(
         <div key={statsArray[element].stat.name}>
@@ -45,11 +50,22 @@ const Stats = (props) => {
                   : statsArray[element].stat.name === "speed"
                   ? "blue"
                   : ""
-              }`}>
-              <span className="bst" style={{ width: (statsArray[element].base_stat / 255) * 100 + "%" }}>
-                {statsArray[element].base_stat}
+              }`}
+            >
+              <span
+                className="bst"
+                style={{
+                  width: (statsArray[element].base_stat / 255) * 100 + "%",
+                  opacity: ((statsArray[element].base_stat / 255) * 100<1?0:1)
+                }}
+              >
+                {/*{statsArray[element].base_stat}*/}
               </span>
+
             </div>
+            <span className="bst-text">
+              {statsArray[element].base_stat}
+              </span>
           </div>
         </div>
       );
@@ -67,11 +83,10 @@ const Stats = (props) => {
 
   return (
     <div>
-      <h3 id="stat">Stat</h3>
-      <div id="titleBar">Basestat(BST): 0 - 255</div>
+      <h3 id="stat">Base stats</h3>
 
       {statsArray.length ? displayStats() : null}
-      {/* {error ? consonole.log("error") : null} */}
+      {error ? <ErrorHandler errorMessage={error} /> : null}
     </div>
   );
 };
