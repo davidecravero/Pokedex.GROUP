@@ -10,10 +10,12 @@ html {
 }
 
 /* fix jumping issues with scrollbar visible/non-visible */
-html { overflow-y:scroll; }
+html {
+  overflow-y: scroll;
+}
 
 nav {
-  background-color: #5db9ff;
+  background-color: #3d7dca;
   color: white;
   position: fixed;
   top: 0;
@@ -28,53 +30,51 @@ ul {
   justify-content: space-around;
   align-items: center;
   height: 4em;
+  padding: 0;
 }
 
 li {
-  color: white;
   font-size: 25px;
 }
 
-li a:visited {
+.link:link {
   text-decoration: none;
+  color: white;
 }
 
-a:link {
+.link:visited {
   text-decoration: none;
-}
-a:visited {
-  text-decoration: none;
+  color: white;
 }
 
-a:hover {
+.link:hover {
   text-decoration: none;
-}
-
-a:active {
-  text-decoration: none;
+  color: white;
 }
 
 .playerOne {
   margin: 0 2.5em;
   font-style: italic;
-  color: #363b81;
+  color: #003a70;
   font-size: 20px;
+  text-transform: capitalize;
 }
 
 .playerTwo {
   margin: 0 2.5em;
   font-style: italic;
-  color: #363b81;
+  color: #003a70;
   font-size: 20px;
+  text-transform: capitalize;
 }
 
 .pOne {
-  color: #363b81;
+  color: #003a70;
   font-size: 20px;
 }
 
 .pTwo {
-  color: #363b81;
+  color: #003a70;
   font-size: 20px;
 }
 
@@ -95,25 +95,16 @@ a:active {
 }
 
 @media only screen and (max-width: 800px) {
-  li {
-    font-size: 20px;
+  ul {
+    flex-direction: column;
+    height: 8em;
+    margin: 0;
+    justify-content: none;
+    align-items: none;
+    margin-right: 20px;
   }
-  .playerOne,
-  .playerTwo,
-  .pOne,
-  .pTwo {
-    font-size: 15px;
-  }
-}
 
-@media only screen and (max-width: 600px) {
-  li {
-    font-size: 15px;
-  }
-  .playerOne,
-  .playerTwo,
-  .pOne,
-  .pTwo {
-    font-size: 12px;
+  .playerWrapper {
+    margin: 0 -0.5em;
   }
 }

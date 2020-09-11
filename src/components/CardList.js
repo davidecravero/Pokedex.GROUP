@@ -6,31 +6,18 @@ import Stats from "./Stats"; */
 import "./../css/CardList.css";
 import pokeball from "./../assets/pokeball-illustrative-small.png";
 
-
-
-const highResImageURL =
-  "https://pokeres.bastionbot.org/images/pokemon/[id].png";
+const highResImageURL = "https://pokeres.bastionbot.org/images/pokemon/[id].png";
 
 // Get pokemon id from details url (index doesn't match pokemon number)
 const HQimg = (name, id) => {
-  let result = (
-    <img
-      className="poke-image"
-      src={highResImageURL.replace("[id]", id)}
-      alt={"HQ image of " + name}
-      title={"HQ image of " + name}
-    />
-  );
+  let result = <img className="poke-image" src={highResImageURL.replace("[id]", id)} alt={"HQ image of " + name} title={"HQ image of " + name} />;
   return result;
 };
 
 // Get pokemon id from details url (index doesn't match pokemon number)
 const extractID = (pokeURL) => {
   // Parse whether url ends on / and remove it if it does
-  let result =
-    pokeURL.slice(-1) === "/"
-      ? pokeURL.substring(0, pokeURL.length - 1)
-      : pokeURL;
+  let result = pokeURL.slice(-1) === "/" ? pokeURL.substring(0, pokeURL.length - 1) : pokeURL;
   // Now find last / before id
   result = result.substring(result.lastIndexOf("/") + 1);
   return result;
@@ -45,7 +32,7 @@ const CardList = ({ data, choiceOne, choiceTwo }) => {
 
   return (
     <div className="poke-card-list">
-      <Link to={`/detail/${data.name}`}>
+      <Link className="linkDetail" to={`/detail/${data.name}`}>
         <h3>{pokeNameUpperCase(data.name)}</h3>
         <h4>#{id}</h4>
         {HQimg(data.name, id)}
@@ -58,11 +45,7 @@ const CardList = ({ data, choiceOne, choiceTwo }) => {
         <button id="btnLeft" onClick={() => choiceOne(data.name)}>
           Player 1
         </button>
-        <img
-          id="pokeBall"
-          alt="Poke-Ball"
-          src={pokeball}
-        />
+        <img id="pokeBall" alt="Poke-Ball" src={pokeball} />
         <button id="btnRight" onClick={() => choiceTwo(data.name)}>
           Player 2
         </button>
