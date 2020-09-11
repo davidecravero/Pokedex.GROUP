@@ -1,12 +1,9 @@
-#abilities {
-  min-height: 80px;
-  margin-top: 30px;
-}
-
-#abilities h1 {
-  background: #fbd743;
-  padding: 12px 0px;
-  font-size: 24px;
+#abilities h3 {
+  text-align: center;
+  background-color: #fbd743;
+  padding: 0.5em 0;
+  font-size: 1.5em;
+  font-family: sans-serif;
 }
 
 .ability-text {
