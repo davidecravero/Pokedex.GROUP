@@ -31,7 +31,7 @@ function App() {
           <li>
             <div id="fightBar">
               {displayPlayerOne && displayPlayerOne.length ? (
-                <div className="playerWrapper">
+                <div className="playerWrapper pWLeft">
                   <div className="pOne">Player 1</div>
                   <div className="playerOne">{displayPlayerOne} </div>
                 </div>
@@ -44,7 +44,7 @@ function App() {
               ) : null}
 
               {displayPlayerTwo && displayPlayerTwo.length ? (
-                <div className="playerWrapper">
+                <div className="playerWrapper pWRight">
                   <div className="pTwo">Player 2</div>
                   <div className="playerTwo">{displayPlayerTwo} </div>
                 </div>
