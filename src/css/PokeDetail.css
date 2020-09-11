@@ -22,3 +22,10 @@
   margin: 20px;
   font-family: sans-serif;
 }
+
+.poke-move-status{
+  min-height:60px;
+  min-width:10px;
+  display:block;
+  font-size:18px;
+}

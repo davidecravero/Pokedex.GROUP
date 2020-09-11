@@ -11,10 +11,12 @@ import "./../css/PokeDetail.css";
 const detailURL = "https://pokeapi.co/api/v2/pokemon/";
 
 const PokeDetailCard = (props) => {
-  const { id, transferData, includeMoves } = props;
+  const {id, transferData, includeMoves, moveHandler, moveStatus, btnDisabled}=props;
+
   const [data, setData] = useState({});
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [pokemonStatus, setPokemonStatus] = useState("");
 
   const pokeNameUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -27,6 +29,7 @@ const PokeDetailCard = (props) => {
       fetch(detailURL + id)
         .then((response) => response.json())
         .then((data) => {
+
           if (transferData) {
             console.log("Transferring data to parent");
 
@@ -74,8 +77,16 @@ const PokeDetailCard = (props) => {
       {data && data.sprites ? (
         <div className="card">
           <h1>{pokeNameUpperCase(id)}</h1>
+          {moveStatus!=undefined?(<span className="poke-move-status">{moveStatus}</span>):(null)}
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
+          <button className="btn-return">
+            <Link to="/">Return</Link>
+          </button>
+          {moveHandler?(<button className="btn-fight" disabled={btnDisabled} onClick={moveHandler}>
+           FIGHT! 
+          </button>):(null)}
+
           {/*passing existing data to avoid refetch for detail components*/}
           <Abilities id={data.id} data={data} />
           <Types id={data.id} data={data} />
