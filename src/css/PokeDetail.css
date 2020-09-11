@@ -42,11 +42,11 @@
 }
 
 .btn-fight:not([disabled]):hover {
-  background:red;
+  background:#ee1515;;
   color:white;
 }
 
 .btn-fight:focus{
   outline:none;
-  border-color:red;
+  border-color:#ee1515;
 }

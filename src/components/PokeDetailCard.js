@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 import Stats from "./Stats";
 import Abilities from "./Abilities";
 import Types from "./Types";
@@ -16,7 +16,7 @@ const PokeDetailCard = (props) => {
   const [data, setData] = useState({});
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [pokemonStatus, setPokemonStatus] = useState("");
+  
 
   const pokeNameUpperCase = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -77,7 +77,7 @@ const PokeDetailCard = (props) => {
       {data && data.sprites ? (
         <div className="card">
           <h1>{pokeNameUpperCase(id)}</h1>
-          {moveStatus!=undefined?(<span className="poke-move-status">{moveStatus}</span>):(null)}
+          {moveStatus!==undefined?(<span className="poke-move-status">{moveStatus}</span>):(null)}
           {/* <img src={data.sprites.front_default} alt={data.name} /> */}
           <Sprites data={data} />
           {/* <button className="btn-return">
