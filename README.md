@@ -21,6 +21,11 @@ Natascha, Davide, Thomas, J
 * Run "npm install" to install dependencies
 * Run "npm start" to run local server
 
+# See it live 
+* Our live version is connected to Github branch "codesandbox"
+* [Codesandbox.io hosted (fullscreen)](https://4sg43.csb.app/)
+* [Codesandbox.io hosted (codeview)](https://codesandbox.io/s/infallible-sun-4sg43)
+
 # Features
 * List view of all base pokemons generation one (151)
   (possibility to grab all 1050 pokemons by redefining limit in the API of pokelist-component)
